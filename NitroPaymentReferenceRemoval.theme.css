@@ -1,0 +1,117 @@
+/***************
+remove from view
+****************/
+/*
+settings
+*/
+[aria-label="User Settings"] > [aria-label="Merch"], /* merch */
+[aria-label="User Settings"] > [aria-label="Nitro"], /* nitro */
+[aria-label="User Settings"] > [aria-label="Nitro"] + div, /* server boost */
+[class^="premiumFeatureBorder_"], /* "try out nitro" in profiles->[user profile] & "color" in appearance */
+/*
+settings cog context menu
+*/
+#user-settings-cog-Discord_Nitro, /* nitro */
+#user-settings-cog-Subscriptions,/* subscriptions*/
+#user-settings-cog-Billing, /* billing */
+#user-settings-cog-merchandise, /* merch */
+#user-settings-cog-Nitro_Server_Boost, /* server boosts */
+/*
+settings->profiles->[user profile]
+*/
+[class*="shopForAllBackgroundImage_"], /* shop button */
+[class^="imagePickerContainer_"] > :nth-child(2), /* gif picker */
+#user-settings-change-avatar-change-avatar-decoration, /* avatar decoration in change avatar context menu */ 
+[class^="profileCustomizationSection_"] > div > div[class^="sectionsContainer_"] > div[class*="withDivider_"] + div, /* avatar decoration*/
+[class^="profileCustomizationSection_"] > div > div[class^="sectionsContainer_"] > div[class*="withDivider_"] + div + div, /* profile effect */
+[class^="shopForAllWinterBackground_"], /* winter pop-up */
+/*
+settings->profile->[server profile]
+*/
+[class^="imageUploaderFileInput_"], /* hover on profile picture */
+[class^="imageUploaderIcon_"], /* icon on profile picture */
+[class^="bannerNitroUpsell_"], /* overlay on banner */
+[class^="upsellOverlayContainer_"], /* "make unique profiles for each server" */
+/*
+settings->gift inventory
+*/
+[class^="emptyState_"] > [class^="emptyStateSubtext_"], /* "feeling generous" message */
+/*
+settings->appearance
+*/
+#appearance-tab > div > div[class^="children_"] > div > div > div[role="radiogroup"] > section:not([class]), /* nitro colors */
+[class^="themeEditor_"] > [class^="editorBody_"] > [role="radiogroup"] > section[class^="selectionGroup_"], /* preview themes */
+#appearance-tab > div > div[class^="children_"] > div[class^="marginTop8_"] > div[class^="selectionGroup_"], /* nitro app icons */
+/*
+settings->voice and video
+*/
+[class*="callSoundsDivider_"], /* divider after soundboard */
+[class*="callSoundsDivider_"] ~ *:not(:last-child), /* all except choose sound */
+[class*="callSoundsDivider_"] ~ div:last-child > h4, /* choose sound header */
+[class*="callSoundsDivider_"] ~ div:last-child > div, /* choose sound box */
+/*
+main page
+*/
+[class^="channel_"] > div > a[href="/store"], /* Nitro Button above DM List */
+[class^="channel_"] > div > a[href="/shop"], /* Shop button above DM list */
+/* 
+chat
+*/
+[class^="premiumPromo_"], /* pop-up when clicking greyed out emojis */
+[class^="upsellWrapper_"], /* pop-up when clicking greyed out stickers */
+button[aria-label="Send a gift"], /* gift button in chat bar */
+#emoji-picker-tab-panel > div > div[class^="burstToggle_"], /*  */
+[class^="messageLengthUpsellContainer_"], /* pop-out for running out of characters in a message */
+[class^="emojiSection_"] > button, /* "Get Nitro" button in custom emoji popout */
+[class*="upsell_"], /* nitro ad above character count */
+[aria-label="Your message is too long..."] > div > div[class^="content_"] > div[class^="defaultColor_"] > p:has(a), /* "and more with discord nitro!" */
+[aria-label="Your message is too long..."] > div > div[class^="artContainer_"],
+[aria-label="Your message is too long..."] > div > div:last-child > [class^="primaryActions_"] > button[class^="shinyButton_"],
+/*
+profiles
+*/
+[class^="premiumIconWrapper_"], /* nitro button in top right of nitro profile banners */
+/*
+servers
+*/
+#guild-header-popout-premium-subscribe, /* server boost in server dropdown */
+div[role='group']:has(#guild-header-popout-premium-subscribe) + div[role="separator"], /* cleanup separator */
+[class^="guildIconContainer_"] /* server boost icon next to server icon */
+{
+  display: none !important;
+}
+
+/**********************
+disable pointer events
+**********************/
+[class^="profileBadges_"] > a[href="https://discord.com/settings/premium"]:active, /* profile pop-out nitro badge */
+[class^="badgeList_"] > a[href="https://discord.com/settings/premium"]:active, /* profile full view nitro badge */
+div[role="button"]:has(div[class^="avatarUploaderNormal_"]) /* settings->profile->server profile hover on profile picture */
+{
+  pointer-events: none;
+}
+
+/**********************
+disable pointer events and change color to --text-normal (theme dependent)
+**********************/
+[class^="emojiSection_"] > div > div > div > a[class^="anchor_"] /* emoji description "Learn more" */
+{
+  pointer-events: none;
+  color: var("--text-normal") !important;
+}
+
+/**********************
+set margin to 0
+**********************/
+[class*="callSoundsDivider_"] ~ div:last-child /* settings->voice and video "choose sound" box */
+{
+  margin-top: 0 !important;
+}
+
+/**********************
+set padding to 30px
+**********************/
+[aria-label="Your message is too long..."] > div > div[class^="content_"] > h2 /* "Your message is too long..." text in character count pop-up */
+{
+  padding-top: 30px !important;
+}
