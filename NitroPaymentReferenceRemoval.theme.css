@@ -86,7 +86,8 @@ disable pointer events
 **********************/
 [class^="profileBadges_"] > a[href="https://discord.com/settings/premium"]:active, /* profile pop-out nitro badge */
 [class^="badgeList_"] > a[href="https://discord.com/settings/premium"]:active, /* profile full view nitro badge */
-div[role="button"]:has(div[class^="avatarUploaderNormal_"]) /* settings->profile->server profile hover on profile picture */
+div[role="button"]:has(div[class^="avatarUploaderNormal_"]), /* settings->profile->server profile hover on profile picture */
+div[role="button"]:has([aria-label^="Server boosting since"]) /* server boost icon next to users in server user list */
 {
   pointer-events: none;
 }
